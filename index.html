@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CasAfro — Barbearia e Salão Afro em Belo Horizonte</title>
+<meta name="description" content="CasAfro: cortes, tranças e cuidados capilares pensados para valorizar sua beleza e essência. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro" aria-hidden="true">
+  <svg id="intro-lines" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+    <path class="braid-line" d="M60,40 C120,90 40,150 100,200 C160,250 80,310 140,360" />
+    <path class="braid-line" d="M200,20 C260,80 180,140 240,200 C300,260 220,320 280,380" />
+    <path class="braid-line" d="M340,50 C380,110 300,160 350,210 C400,260 320,320 360,370" />
+  </svg>
+  <div id="intro-glow"></div>
+  <div id="intro-logo">CasAfro</div>
+</div>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#topo" class="logo">CasAfro</a>
+    <nav id="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#experiencia">A experiência</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#valores">Valores</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a class="btn btn-gold btn-nav-cta" href="https://wa.me/5531991398148" target="_blank" rel="noopener">Agendar</a>
+    </nav>
+    <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-text reveal-left">
+        <p class="rating-badge">★ 4,9 &nbsp;•&nbsp; 94 avaliações</p>
+        <h1>Seu cabelo. <br>Sua identidade. <br><span>Seu estilo.</span></h1>
+        <p class="hero-sub">Cortes, tranças e cuidados pensados para valorizar sua beleza e sua essência.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/5531991398148" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <a class="btn btn-outline" href="#servicos">Conhecer serviços</a>
+        </div>
+      </div>
+      <div class="hero-image reveal-right">
+        <div class="hero-halo" aria-hidden="true"></div>
+        <picture>
+          <source srcset="assets/profissional.webp" type="image/webp">
+          <img src="assets/profissional.png" alt="Profissional da CasAfro, com dreadlocks e óculos, em retrato editorial" width="969" height="1241" fetchpriority="high">
+        </picture>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section class="section" id="experiencia">
+    <div class="container">
+      <span class="eyebrow">A experiência CasAfro</span>
+      <p class="section-lead reveal-up">Mais do que um salão: um espaço de cuidado, técnica, respeito e expressão. Na CasAfro, cada atendimento é pensado para você se sentir bem do seu jeito.</p>
+
+      <div class="cards-3">
+        <div class="diff-card reveal-up">
+          <div class="diff-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M20 4c-6 0-10 5-10 11 0 8 5 12 5 16h10c0-4 5-8 5-16 0-6-4-11-10-11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 35h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Atendimento personalizado</h3>
+          <p>Escutamos antes de cortar. Cada visual respeita seu tipo de cabelo, rosto e estilo de vida.</p>
+        </div>
+        <div class="diff-card reveal-up">
+          <div class="diff-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M8 30 20 6l12 24" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 20h14" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Técnica e conhecimento</h3>
+          <p>Profissionais especializados em texturas afro, cachos e tranças, em constante atualização.</p>
+        </div>
+        <div class="diff-card reveal-up">
+          <div class="diff-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.6"/><path d="M14 20a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Ambiente acolhedor</h3>
+          <p>Um espaço pensado para você relaxar, com café gourmet e atenção aos detalhes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section section-tint" id="servicos">
+    <div class="container">
+      <span class="eyebrow">Serviços</span>
+      <h2 class="section-title reveal-up">O que cuidamos por aqui</h2>
+
+      <div class="services-grid">
+        <article class="service-card reveal-up">
+          <h3>Cabelos curtos</h3>
+          <p>Cortes precisos, desenhos e acabamentos sob medida.</p>
+          <span class="price">a partir de R$ 20</span>
+        </article>
+        <article class="service-card reveal-up">
+          <h3>Combos — cabelos curtos</h3>
+          <p>Corte, barba, design e finalização em um só atendimento.</p>
+          <span class="price">a partir de R$ 60</span>
+        </article>
+        <article class="service-card reveal-up">
+          <h3>Cabelos longos</h3>
+          <p>Cortes e cronograma capilar para cachos e tranças longas.</p>
+          <span class="price">a partir de R$ 70</span>
+        </article>
+        <article class="service-card reveal-up">
+          <h3>Combos — cabelos longos</h3>
+          <p>Corte, hidratação, finalização e limpeza facial.</p>
+          <span class="price">a partir de R$ 165</span>
+        </article>
+        <article class="service-card reveal-up">
+          <h3>Rosto</h3>
+          <p>Design de sobrancelha, barba, epilação e limpeza facial.</p>
+          <span class="price">a partir de R$ 20</span>
+        </article>
+      </div>
+
+      <div class="services-cta reveal-up">
+        <a href="#valores" class="btn btn-outline">Ver valores completos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="section" id="valores">
+    <div class="container">
+      <span class="eyebrow">Valores</span>
+      <h2 class="section-title reveal-up">Tabela de preços</h2>
+
+      <div class="accordion" id="accordion">
+
+        <div class="acc-item reveal-up">
+          <button class="acc-trigger" aria-expanded="false">
+            <span>Cabelos curtos</span><span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-panel">
+            <ul class="price-list">
+              <li><span>Corte curto simples (máquina, raspado, disfarçado)</span><strong>R$ 45</strong></li>
+              <li><span>Sidecut / Undercut</span><strong>R$ 25</strong></li>
+              <li><span>Corte curto + desenho simples</span><strong>R$ 50</strong></li>
+              <li><span>Corte curto + desenho grande</span><strong>R$ 55</strong></li>
+              <li><span>Corte curto com acabamento fixo</span><strong>R$ 55</strong></li>
+              <li><span>Pezinho</span><strong>R$ 20</strong></li>
+              <li><span>Realinhamento de cachos curtos</span><strong>R$ 20</strong></li>
+              <li><span>Hidratação simples (cabelo curto)</span><strong>R$ 50</strong></li>
+              <li><span>Cronograma capilar (cabelo curto)</span><strong>R$ 150</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="acc-item reveal-up">
+          <button class="acc-trigger" aria-expanded="false">
+            <span>Combos — cabelos curtos</span><span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-panel">
+            <ul class="price-list">
+              <li><span>Corte simples + barba</span><strong>R$ 60</strong></li>
+              <li><span>Corte simples + design</span><strong>R$ 60</strong></li>
+              <li><span>Corte simples + hidratação + finalização</span><strong>R$ 75</strong></li>
+              <li><span>Corte simples + limpeza facial Zona T</span><strong>R$ 65</strong></li>
+              <li><span>Corte simples + barba + design de sobrancelhas</span><strong>R$ 75</strong></li>
+              <li><span>Corte simples + sobrancelhas + hidratação + finalização</span><strong>R$ 95</strong></li>
+              <li><span>Corte simples + barba + sobrancelhas + hidratação + finalização</span><strong>R$ 125</strong></li>
+              <li><span>Corte + barba + design + hidratação + limpeza facial</span><strong>R$ 155</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="acc-item reveal-up">
+          <button class="acc-trigger" aria-expanded="false">
+            <span>Cabelos longos</span><span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-panel">
+            <ul class="price-list">
+              <li><span>Corte longo</span><strong>a partir de R$ 70</strong></li>
+              <li><span>Hidratação simples</span><strong>a partir de R$ 85</strong></li>
+              <li><span>Cronograma capilar (12 hidratações)</span><strong>a partir de R$ 350</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="acc-item reveal-up">
+          <button class="acc-trigger" aria-expanded="false">
+            <span>Combos — cabelos longos</span><span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-panel">
+            <ul class="price-list">
+              <li><span>Corte longo + hidratação + finalização</span><strong>R$ 165</strong></li>
+              <li><span>Corte longo + hidratação + finalização + limpeza facial</span><strong>R$ 180</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="acc-item reveal-up">
+          <button class="acc-trigger" aria-expanded="false">
+            <span>Rosto</span><span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-panel">
+            <ul class="price-list">
+              <li><span>Design de sobrancelha</span><strong>R$ 35</strong></li>
+              <li><span>Design com henna</span><strong>R$ 50</strong></li>
+              <li><span>Epilação rosto</span><strong>R$ 45</strong></li>
+              <li><span>Epilação buço</span><strong>R$ 20</strong></li>
+              <li><span>Barba</span><strong>R$ 30</strong></li>
+              <li><span>Limpeza facial Zona T</span><strong>R$ 25</strong></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="price-note reveal-up">Valores podem variar conforme avaliação do profissional. Consulte disponibilidade no WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="section section-tint" id="galeria">
+    <div class="container">
+      <span class="eyebrow">Galeria</span>
+      <h2 class="section-title reveal-up">Trabalhos recentes</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Corte + desenho</div></div>
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Tranças</div></div>
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Acabamento</div></div>
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Barba</div></div>
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Cachos</div></div>
+        <div class="gallery-item mask-reveal"><div class="gallery-placeholder">Ambiente</div></div>
+      </div>
+      <p class="gallery-note">Espaço reservado para fotos reais dos atendimentos — substitua os blocos acima pelas imagens da CasAfro.</p>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="section" id="avaliacoes">
+    <div class="container">
+      <span class="eyebrow">Avaliações</span>
+      <h2 class="section-title reveal-up">Quem já passou por aqui</h2>
+      <div class="reviews-grid">
+        <blockquote class="review-card reveal-up">
+          <p>“Lugar top de linha, ótimos profissionais.”</p>
+        </blockquote>
+        <blockquote class="review-card reveal-up">
+          <p>“Atendimento bacana, ótimo profissional, com técnica e conhecimento. Preço justo!”</p>
+        </blockquote>
+        <blockquote class="review-card reveal-up">
+          <p>“Recepção com um excelente café gourmet.”</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="section section-tint" id="contato">
+    <div class="container contact-grid">
+      <div class="contact-info reveal-up">
+        <span class="eyebrow">Localização e contato</span>
+        <h2 class="section-title">Venha nos visitar</h2>
+        <ul class="contact-list">
+          <li>
+            <strong>Endereço</strong>
+            <span>R. Flôr de Pitangueira, 495 - Mineirão, Belo Horizonte - MG, 30672-250</span>
+          </li>
+          <li>
+            <strong>WhatsApp</strong>
+            <span><a href="https://wa.me/5531991398148" target="_blank" rel="noopener">(31) 99139-8148</a></span>
+          </li>
+          <li>
+            <strong>Horário</strong>
+            <span>Fechado às segundas-feiras. Abre terça-feira às 09:00.</span>
+          </li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/5531991398148" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+      <div class="contact-map reveal-up">
+        <iframe
+          title="Mapa CasAfro"
+          src="https://www.google.com/maps?q=R.+Fl%C3%B4r+de+Pitangueira,+495,+Mineir%C3%A3o,+Belo+Horizonte+-+MG,+30672-250&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container reveal-up">
+      <h2>Seu próximo visual começa aqui.</h2>
+      <p>Agende seu horário e viva a experiência CasAfro.</p>
+      <a class="btn btn-gold" href="https://wa.me/5531991398148" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">CasAfro <span>• Belo Horizonte, MG</span></div>
+    <ul class="footer-links">
+      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://wa.me/5531991398148" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="#contato">Endereço</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5531991398148" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4C9.4 4 4 9.4 4 16c0 2.4.7 4.6 1.9 6.5L4 28l5.7-1.9C11.4 27.3 13.6 28 16 28c6.6 0 12-5.4 12-12S22.6 4 16 4Z" stroke="currentColor" stroke-width="1.6"/><path d="M11 15c1 3 3 5 6 6 1 .3 1.8 0 2.4-1l.4-.9c.2-.4-.1-.9-.6-1l-1.8-.6c-.4-.1-.8 0-1 .3l-.4.5c-1.4-.7-2.5-1.8-3.2-3.2l.5-.4c.3-.2.4-.6.3-1l-.6-1.8c-.1-.5-.6-.8-1-.6l-.9.4c-1 .6-1.3 1.4-1 2.4Z" fill="currentColor"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
