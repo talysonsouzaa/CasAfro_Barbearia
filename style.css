@@ -647,3 +647,462 @@ body.intro-active{ overflow: hidden; }
   .cards-3, .services-grid, .reviews-grid, .gallery-grid{ grid-template-columns: 1fr; }
   .section{ padding: 72px 0; }
 }
+
+
+/* =========================================================
+   FX — silhuetas afro, desfiles, parallax e efeitos de scroll
+   (bloco adicionado; as regras acima permanecem como estavam)
+   ========================================================= */
+:root{
+  --sun: #E3B341;      /* amarelo-ouro das silhuetas */
+  --leaf: #2A8A63;     /* verde claro de apoio */
+  --afro-skin: #8A6A22;
+}
+
+/* silhuetas (sprite SVG) */
+.hair{ fill: currentColor; }
+.skin{ fill: var(--afro-skin); }
+.cut{ fill: var(--cut, #0b0b0b); }
+
+/* ---------- mais verde ---------- */
+.hero-bg{
+  background:
+    radial-gradient(ellipse 60% 55% at 86% 18%, rgba(26,91,65,.55), transparent 65%),
+    radial-gradient(ellipse 55% 55% at 4% 100%, rgba(18,60,45,.7), transparent 65%),
+    var(--black);
+}
+.section:not(.section-tint){
+  background: radial-gradient(ellipse 55% 45% at 100% 0%, rgba(18,60,45,.38), transparent 70%), var(--black);
+}
+.section-tint{
+  background: linear-gradient(180deg, #0a2d21 0%, #08291E 100%);
+  border-color: rgba(42,138,99,.28);
+}
+.cta-final{
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 100%, rgba(26,91,65,.65), transparent 70%),
+    var(--black);
+}
+.diff-card, .review-card{ background: #0f1612; }
+
+/* ---------- barra de progresso ---------- */
+#scroll-progress{
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--leaf), var(--sun));
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 600;
+  pointer-events: none;
+}
+
+/* ---------- hero ---------- */
+html.fx-ready .hero-text h1 .ln{
+  display: block;
+  overflow: hidden;
+  font-weight: inherit;
+  padding-bottom: .1em;
+  margin-bottom: -.1em;
+}
+html.fx-ready .hero-text h1 .ln-in{
+  display: block;
+  font-weight: inherit;
+  transform: translateY(115%);
+  transition: transform 1s var(--ease);
+}
+html.fx-ready body.fx-loaded .hero-text h1 .ln-in{ transform: none; }
+html.fx-ready .hero-text h1 .ln:nth-child(2) .ln-in{ transition-delay: .12s; }
+html.fx-ready .hero-text h1 .ln:nth-child(3) .ln-in{ transition-delay: .24s; }
+
+.hero-deco{ position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: -1; }
+.hd{ position: absolute; height: auto; }
+.hd-1{ width: min(54vw, 680px); right: -9vw; top: 4vh; color: var(--sun); opacity: .09; }
+.hd-2{ width: min(32vw, 380px); left: -6vw; bottom: -5vh; color: var(--leaf); opacity: .16; --afro-skin: #17593F; }
+.hd-3{ width: min(8vw, 96px); left: 47%; top: 15vh; color: var(--sun); opacity: .16; rotate: 18deg; }
+
+.hero-halo{ animation: halo-pulse 7s ease-in-out infinite; }
+@keyframes halo-pulse{
+  0%,100%{ transform: translate(-50%,-50%) scale(1); }
+  50%{ transform: translate(-50%,-50%) scale(1.07); }
+}
+
+/* ---------- desfile de cabelos ---------- */
+.parade{
+  position: relative;
+  height: clamp(180px, 28vw, 330px);
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--black) 0%, #0a2d21 55%, #0d3a2a 100%);
+  border-top: 1px solid rgba(42,138,99,.22);
+}
+.parade-track{
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  height: calc(100% - 28px);
+  width: max-content;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(8px, 2.6vw, 38px);
+  transform: translateX(-50%);
+  will-change: translate;
+}
+.parade .p{
+  flex: none;
+  width: auto;
+  opacity: 0;
+  transform: translateY(45%) scale(.94);
+  transition: opacity .7s ease, transform .95s var(--ease);
+}
+.parade.is-visible .p{ opacity: 1; transform: none; }
+.parade .p:nth-child(2){ transition-delay: .06s; }
+.parade .p:nth-child(3){ transition-delay: .12s; }
+.parade .p:nth-child(4){ transition-delay: .18s; }
+.parade .p:nth-child(5){ transition-delay: .24s; }
+.parade .p:nth-child(6){ transition-delay: .30s; }
+.parade .p:nth-child(7){ transition-delay: .36s; }
+.parade .p:nth-child(8){ transition-delay: .42s; }
+.parade .p:nth-child(9){ transition-delay: .48s; }
+.parade .p:nth-child(n+10){ transition-delay: .54s; }
+.p.flip{ scale: -1 1; }
+.sz-xl{ height: 100%; }
+.sz-l{ height: 86%; }
+.sz-m{ height: 72%; }
+.sz-s{ height: 56%; }
+.p.tone-y{ color: var(--sun); --afro-skin: #8A6A22; }
+.p.tone-g{ color: var(--leaf); --afro-skin: #17593F; }
+
+/* faixa geométrica (inspirada em padrões de tecido africano) */
+.kente{
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 12px;
+  background-color: #0b0b0b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='12'%3E%3Cpolygon points='0,12 12,0 24,12' fill='%23E3B341'/%3E%3Cpolygon points='24,12 36,0 48,12' fill='%232A8A63'/%3E%3Cpolygon points='12,12 24,2 36,12' fill='%23123C2D'/%3E%3C/svg%3E");
+  background-size: 48px 12px;
+  background-repeat: repeat-x;
+}
+.kente-footer{ position: relative; }
+
+/* ---------- faixa de texto ---------- */
+.marquee{
+  position: relative;
+  z-index: 3;
+  width: 104%;
+  margin: -14px 0 -14px -2%;
+  padding: 16px 0;
+  background: var(--sun);
+  color: var(--black);
+  overflow: hidden;
+  transform: rotate(-1.6deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+.marquee-track{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.6vw, 2.8rem);
+  line-height: 1;
+  will-change: translate;
+}
+.mq-ic{ height: 1.25em; width: auto; margin: 0 .8em; color: #123C2D; --afro-skin: #0b5b3f; }
+
+/* ---------- decoração de fundo nas seções ---------- */
+.section{ overflow: hidden; }
+.section > .container{ position: relative; z-index: 1; }
+.sec-deco{ position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.sd{ position: absolute; height: auto; color: var(--sun); opacity: .05; }
+.sd-a{ width: min(50vw, 580px); right: -12vw; top: -8%;  color: var(--leaf); opacity: .13; }
+.sd-b{ width: min(26vw, 300px); left: -6vw;  bottom: -10%; }
+.sd-c{ width: min(36vw, 430px); left: -9vw;  top: 6%; }
+.sd-d{ width: min(24vw, 280px); right: -4vw; bottom: -6%; color: var(--leaf); opacity: .15; --afro-skin: #17593F; }
+.sd-e{ width: min(10vw, 120px); right: 7vw;  top: 6%;  opacity: .1; rotate: 14deg; }
+.sd-f{ width: min(48vw, 540px); left: -14vw; bottom: -14%; color: var(--leaf); opacity: .11; }
+.sd-g{ width: min(28vw, 320px); right: -6vw; top: -6%; }
+.sd-h{ width: min(38vw, 440px); left: -10vw; bottom: -12%; color: var(--leaf); opacity: .13; --afro-skin: #17593F; }
+.sd-i{ width: min(26vw, 300px); right: -5vw; bottom: -8%; }
+.sd-j{ width: min(48vw, 540px); left: -12vw; top: -10%; color: var(--leaf); opacity: .12; }
+
+/* ---------- cartões: brilho que segue o mouse ---------- */
+.diff-card, .service-card, .review-card{ position: relative; overflow: hidden; }
+.diff-card::before, .service-card::before, .review-card::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(227,179,65,.12), transparent 62%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.diff-card:hover::before, .service-card:hover::before, .review-card:hover::before{ opacity: 1; }
+.service-card{ border-color: rgba(42,138,99,.35); }
+.service-card:hover{ box-shadow: 0 14px 34px rgba(0,0,0,.4); }
+
+/* ---------- botões: brilho ---------- */
+.btn{ position: relative; overflow: hidden; }
+.btn-gold::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.38) 50%, transparent 70%);
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+.btn-gold:hover::after{ transform: translateX(130%); transition: transform .8s var(--ease); }
+
+/* ---------- galeria ---------- */
+.gallery-item{
+  position: relative;
+  background: linear-gradient(160deg, #11442F, #08291E 70%);
+  border-color: rgba(42,138,99,.4);
+  transition: clip-path .8s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.gallery-item.is-visible:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+.gallery-placeholder{ position: relative; }
+.gallery-placeholder::after{
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 42%;
+  background: linear-gradient(0deg, rgba(0,0,0,.7), transparent);
+  pointer-events: none;
+}
+.gallery-placeholder span{ position: relative; z-index: 2; }
+.gp-hair{
+  position: absolute;
+  left: 50%; bottom: -1%;
+  height: 82%; width: auto;
+  color: var(--sun);
+  transform: translateX(-50%) translateY(22%);
+  transition: transform 1.1s var(--ease) .25s;
+}
+.gallery-item.is-visible .gp-hair{ transform: translateX(-50%); }
+.gallery-item.is-visible:hover .gp-hair{ transform: translateX(-50%) scale(1.06); transition-delay: 0s; transition-duration: .5s; }
+.gallery-item:nth-child(even) .gp-hair{ color: var(--leaf); --afro-skin: #17593F; }
+/* quando as fotos reais entrarem: <div class="gallery-item mask-reveal"><img src="..." alt="..."></div> */
+.gallery-item img{ width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+.gallery-item:hover img{ transform: scale(1.06); }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 760px){
+  .hd-1{ width: 86vw; right: -34vw; top: 2vh; }
+  .hd-2{ width: 52vw; left: -14vw; }
+  .hd-3{ display: none; }
+  .sd{ opacity: .045; }
+  .sd-a, .sd-d, .sd-f, .sd-h, .sd-j{ opacity: .1; }
+  .sd-a, .sd-f, .sd-j{ width: 80vw; }
+  .parade{ height: clamp(170px, 46vw, 260px); }
+  .marquee{ padding: 12px 0; }
+}
+
+/* ---------- movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce){
+  html.fx-ready .hero-text h1 .ln-in,
+  .parade .p, .gp-hair{ opacity: 1 !important; transform: none !important; transition: none !important; }
+  .gp-hair{ transform: translateX(-50%) !important; }
+  .hero-halo{ animation: none; }
+}
+
+/* ---------- ajustes ---------- */
+main{ overflow-x: clip; }
+.hd-1{ opacity: .14; }
+.hd-2{ left: -12vw; bottom: -12vh; width: min(28vw, 330px); }
+/* suaviza as bordas da foto para fundir com o fundo verde */
+.hero-image img{
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 8%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 8%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* =========================================================
+   FX v2 — silhuetas estilo vetor chapado, foto fundida, mais efeitos
+   ========================================================= */
+.p.flip, .sd.flip, .hd.flip{ scale: -1 1; }
+
+/* foto do profissional: o escuro da foto se funde ao verde do fundo */
+.hero-image img{ -webkit-mask-image: none; mask-image: none; }
+.hero-image picture{
+  mix-blend-mode: lighten;
+  filter: brightness(1.18) contrast(1.06);
+  -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 40%, #000 38%, rgba(0,0,0,.55) 66%, transparent 100%);
+  mask-image: radial-gradient(ellipse 58% 62% at 50% 40%, #000 38%, rgba(0,0,0,.55) 66%, transparent 100%);
+}
+
+/* silhuetas: mais presença */
+.sd{ opacity: .07; }
+.sd-a, .sd-d, .sd-f, .sd-h, .sd-j{ opacity: .16; }
+.hd-1{ opacity: .16; }
+
+/* entrada das silhuetas de fundo (sobem e aparecem quando a seção entra) */
+.sec-deco{ opacity: 0; transition: opacity 1.4s ease; }
+.section.is-in .sec-deco{ opacity: 1; }
+.sd{ transform: translateY(70px) scale(.94); transition: transform 1.6s var(--ease) .15s; }
+.section.is-in .sd{ transform: none; }
+.hd-1{ animation: hd-in 1.8s var(--ease) .5s both; }
+.hd-2{ animation: hd-in 1.8s var(--ease) .8s both; }
+.hd-3{ animation: hd-in 1.8s var(--ease) 1.1s both; }
+@keyframes hd-in{ from{ opacity: 0; transform: translateY(60px) scale(.92); } to{ transform: none; } }
+
+/* desfile: balanço leve depois que entram */
+.parade.is-visible .p{ animation: sway 6.5s ease-in-out 1.4s infinite; transform-origin: 50% 100%; }
+.parade.is-visible .p:nth-child(3n+1){ animation-duration: 5.4s; }
+.parade.is-visible .p:nth-child(3n+2){ animation-duration: 7.6s; animation-direction: reverse; }
+@keyframes sway{ 0%,100%{ rotate: -1.1deg; } 50%{ rotate: 1.1deg; } }
+
+/* revelar: sobe, aumenta e ganha foco */
+html.fx-ready .reveal-up{
+  transform: translateY(46px) scale(.97);
+  filter: blur(8px);
+  transition: opacity .8s var(--ease), transform .9s var(--ease), filter .8s var(--ease);
+}
+html.fx-ready .reveal-up.is-visible{ transform: none; filter: none; }
+html.fx-ready .reveal-left{ filter: blur(8px); transition: opacity .8s var(--ease), transform .9s var(--ease), filter .8s var(--ease); }
+html.fx-ready .reveal-right{ filter: blur(8px); transition: opacity .9s var(--ease), transform 1s var(--ease), filter .9s var(--ease); }
+html.fx-ready .reveal-left.is-visible, html.fx-ready .reveal-right.is-visible{ filter: none; }
+
+/* títulos: palavra por palavra */
+html.fx-ready .section-title.reveal-up,
+html.fx-ready .cta-final h2{ opacity: 1; transform: none; filter: none; }
+.w{ display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.w-in{ display: inline-block; transform: translateY(115%); transition: transform .9s var(--ease); }
+.is-visible .w-in, .w-visible .w-in{ transform: none; }
+
+/* subtítulo da seção: linha que cresce */
+.eyebrow{ position: relative; padding-bottom: 6px; }
+.eyebrow::after{
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 44px; height: 2px; background: linear-gradient(90deg, var(--sun), transparent);
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 1s var(--ease) .2s;
+}
+.eyebrow.eb-in::after{ transform: scaleX(1); }
+
+@media (max-width: 760px){
+  .sd{ opacity: .07; }
+}
+@media (prefers-reduced-motion: reduce){
+  .sec-deco{ opacity: 1 !important; transition: none !important; }
+  .sd, .w-in{ transform: none !important; transition: none !important; }
+  .hd, .parade .p{ animation: none !important; }
+  .eyebrow::after{ transform: scaleX(1) !important; transition: none !important; }
+}
+
+/* ajuste da foto e da decoração do hero */
+.hero-image picture{
+  filter: brightness(1.42) contrast(1.08) saturate(1.05);
+  -webkit-mask-image: radial-gradient(ellipse 64% 72% at 50% 42%, #000 46%, rgba(0,0,0,.6) 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 64% 72% at 50% 42%, #000 46%, rgba(0,0,0,.6) 72%, transparent 100%);
+}
+.hd-2{ width: min(34vw, 420px); left: -9vw; bottom: -10vh; opacity: .2; }
+
+/* =========================================================
+   FX v3 — ilustrações estilo vetor (pele, cabelo, roupa), foto recortada, fita nova
+   ========================================================= */
+/* variações de cor dos personagens */
+.c1{ --bg:#2F7D5B; }
+.c2{ --bg:#8B6B55; --skin:#7A4A30; --skin-d:#5C3522; --shirt:#2F7D5B; --shirt-d:#256349; }
+.c3{ --bg:#14503A; --skin:#A8714A; --skin-d:#855334; --shirt:#B5573A; --shirt-d:#94442B; }
+.c4{ --bg:#A98B6E; --skin:#6E4229; --skin-d:#52301D; --shirt:#14503A; --shirt-d:#0E3D2B; }
+
+/* foto do profissional: agora é um recorte real (sem fundo), sem filtro nenhum */
+.hero-image picture{
+  mix-blend-mode: normal; filter: none;
+  -webkit-mask-image: none; mask-image: none;
+}
+.hero-image picture, .hero-image img{ max-height: 700px; border-radius: 0; }
+
+/* hero: decoração discreta */
+.hd-2{ opacity: .16; }
+
+/* fita (faixa de texto): verde, sem amarelo */
+.marquee{
+  background: linear-gradient(90deg, #14503A, #1F7A55 50%, #14503A);
+  color: var(--cream);
+}
+.mq-dot{
+  flex: none; display: inline-block;
+  width: .32em; height: .32em; margin: 0 1em;
+  background: var(--cream); transform: rotate(45deg); opacity: .85;
+}
+
+/* desfile e fundos: personagens ocupam o cartão inteiro */
+.sd{ opacity: .1; }
+.sd-a, .sd-d, .sd-f, .sd-h, .sd-j{ opacity: .14; }
+.parade{ background: linear-gradient(180deg, var(--black) 0%, #0a2d21 60%, #0d3a2a 100%); }
+.parade .p{ border-radius: 0; filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
+
+/* galeria: o desenho preenche o bloco (some quando entrar a foto real) */
+.gp-hair{
+  inset: 0; left: 0; bottom: 0;
+  width: 100%; height: 100%;
+  transform: translateY(8%); opacity: 0;
+  transition: transform 1.1s var(--ease) .25s, opacity .9s ease .25s;
+}
+.gallery-item.is-visible .gp-hair{ transform: none; opacity: 1; }
+.gallery-item.is-visible:hover .gp-hair{ transform: scale(1.04); }
+.gallery-item:nth-child(even) .gp-hair{ color: inherit; }
+@media (prefers-reduced-motion: reduce){ .gp-hair{ opacity: 1 !important; transform: none !important; } }
+
+/* desenhos de fundo: tom verde suave (sem manchas marrons) */
+.sd{ filter: sepia(1) hue-rotate(78deg) saturate(1.3) brightness(.6); opacity: .1; }
+.sd-a, .sd-d, .sd-f, .sd-h, .sd-j{ opacity: .12; }
+
+/* =========================================================
+   FX v4 — desenhos SEM fundo (só a figura), foto inteira recortada
+   ========================================================= */
+/* cores dos personagens (pele e roupa) */
+.c1{ --skin:#8A5A3B; --skin-d:#6A4129; --shirt:#F1E4C8; --shirt-d:#D8C6A0; }
+.c2{ --skin:#7A4A30; --skin-d:#5C3522; --shirt:#B5573A; --shirt-d:#94442B; }
+.c3{ --skin:#A8714A; --skin-d:#855334; --shirt:#DADADA; --shirt-d:#B9B9B9; }
+.c4{ --skin:#6E4229; --skin-d:#52301D; --shirt:#0E3D2B; --shirt-d:#0A2D20; }
+
+/* faixa dos personagens: verde médio para o cabelo preto aparecer */
+.parade{ background: linear-gradient(180deg, #0f3d2d 0%, #1b6b4b 55%, #22805a 100%); }
+.parade .p{ filter: none; border-radius: 0; }
+
+/* galeria: personagem em pé, sem fundo */
+.gallery-item{ background: linear-gradient(160deg, #1b6b4b, #0f3d2d 80%); }
+.gp-hair{
+  inset: auto; left: 0; bottom: 0;
+  width: 100%; height: auto; aspect-ratio: 1 / 1;
+  transform: translateY(8%) scale(1.12); transform-origin: 50% 100%;
+}
+.gallery-item.is-visible .gp-hair{ transform: scale(1.12); }
+.gallery-item.is-visible:hover .gp-hair{ transform: scale(1.18); }
+
+/* sombras de fundo das seções: silhueta suave verde */
+.sd{ filter: brightness(0) invert(1) sepia(1) hue-rotate(95deg) saturate(1.6); opacity: .06; }
+.sd-a, .sd-d, .sd-f, .sd-h, .sd-j{ opacity: .08; }
+
+/* =========================================================
+   FX v5 — foto nova (busto): bordas suaves + efeito ao passar o mouse
+   ========================================================= */
+.hero-image{ perspective: 1000px; }
+
+/* a foto é um busto cortado na moldura: dissolve embaixo e nas laterais */
+.hero-image picture{
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 6%, #000 76%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 6%, #000 76%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+.hero-image img{
+  transform: rotateY(var(--ry, 0deg)) rotateX(var(--rx, 0deg)) scale(var(--sc, 1));
+  transform-origin: 50% 60%;
+  transition: transform .35s var(--ease), filter .5s ease;
+  filter: drop-shadow(0 18px 26px rgba(0,0,0,.45));
+  will-change: transform;
+}
+.hero-image:not(:hover) img{ transition-duration: .8s; }
+.hero-halo{ transition: filter .6s ease; }
+
+@media (hover: hover) {
+  .hero-image:hover img{
+    --sc: 1.045;
+    filter: drop-shadow(0 0 26px rgba(42,138,99,.6)) drop-shadow(0 24px 34px rgba(0,0,0,.55)) brightness(1.07) contrast(1.05);
+  }
+  .hero-image:hover .hero-halo{ filter: blur(6px) brightness(2.4) saturate(1.3); }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-image img{ transform: none !important; transition: none !important; }
+}
